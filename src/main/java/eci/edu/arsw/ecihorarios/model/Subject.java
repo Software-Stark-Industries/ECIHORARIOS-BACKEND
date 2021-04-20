@@ -19,7 +19,7 @@ public class Subject implements Serializable {
     @Column(name = "description", length = 255, unique = true, nullable = false)
     private String description;
 
-    @Column(name = "program", length = 255, unique = true, nullable = false)
+    @Column(name = "program", length = 255, nullable = false)
     private String program;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
