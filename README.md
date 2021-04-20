@@ -16,6 +16,8 @@
 
 ## Codacy
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/95e7cd0019bb4efcbc00d8beb3b15028)](https://www.codacy.com/gh/Software-Stark-Industries/ECIHORARIOS-BACKEND/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Software-Stark-Industries/ECIHORARIOS-BACKEND&amp;utm_campaign=Badge_Grade)
+
 ## Descripción General
  
 Es un herramienta desarrollada por el grupo de desarrolladores “Software-Stark-Industries” la cual se encarga de mejorar el servicio que presta la universidad para la asignación y creación de horarios para la escuela colombiana de ingeniería. Para ello se planteó y creo una plataforma innovadora que cumplirá con los requerimientos de los estudiantes y solucionará las falencias de la plataforma actual usada, para ello se creo un aplicativo web que permitirá hacer uso de varios usuarios para cumplir con los requerimientos para realizar horarios. 
