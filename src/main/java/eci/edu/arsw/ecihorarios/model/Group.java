@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
-import java.security.Timestamp;
 
 @Entity
 @Table(name = "groups")
@@ -19,17 +18,17 @@ public class Group {
     @Column(name = "room", length = 200)
     private String room;
 
-    @Column(name = "professor", length = 200, unique = true)
+    @Column(name = "professor", length = 200)
     private String professor;
 
-    @Column(name = "capacity", length = 50, nullable = false)
+    @Column(name = "capacity", length = 50)
     private int capacity;
 
-    @Column(name = "date_of_init", length = 200, unique = true)
-    private String dateOfInit;
+    @Column(name = "date_of_init", length = 200)
+    private String hourOfInit;
 
-    @Column(name = "date_of_end" , length = 200, unique = true)
-    private String dateOfEnd;
+    @Column(name = "date_of_end" , length = 200)
+    private String hourOfEnd;
 
     @ManyToOne
     @JoinColumn(name = "subject")
@@ -39,29 +38,28 @@ public class Group {
     public Group(){
     }
 
-    public Group(long id, String room, String professor, int capacity, Timestamp dateOfInit, Timestamp dateOfEnd) {
-        this.id = id;
-        this.room = room;
-        this.professor = professor;
-        this.capacity = capacity;
-        this.dateOfInit = dateOfInit;
-        this.dateOfEnd = dateOfEnd;
+    public String getHourOfInit() {
+        return hourOfInit;
     }
 
-    public Timestamp getDateOfInit() {
-        return dateOfInit;
+    public void setHourOfInit(String hourOfInit) {
+        this.hourOfInit = hourOfInit;
     }
 
-    public void setDateOfInit(Timestamp dateOfInit) {
-        this.dateOfInit = dateOfInit;
+    public String getHourOfEnd() {
+        return hourOfEnd;
     }
 
-    public Timestamp getDateOfEnd() {
-        return dateOfEnd;
+    public void setHourOfEnd(String hourOfEnd) {
+        this.hourOfEnd = hourOfEnd;
     }
 
-    public void setDateOfEnd(Timestamp dateOfEnd) {
-        this.dateOfEnd = dateOfEnd;
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     public long getId() {
