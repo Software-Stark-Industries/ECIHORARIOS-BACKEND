@@ -9,7 +9,7 @@
 
 ## CircleCi
 
-[![CircleCI](https://circleci.com/gh/Software-Stark-Industries/ECIHORARIOS-BACKEND.svg?style=svg)](https://app.circleci.com/pipelines/github/Software-Stark-Industries/ECIHORARIOS-BACKEND)
+[![CircleCI](https://circleci.com/Software-Stark-Industries/ECIHORARIOS-BACKEND.svg?style=svg&circle-token=<YOUR_STATUS_API_TOKEN>)](https://app.circleci.com/pipelines/github/Software-Stark-Industries/ECIHORARIOS-BACKEND)
 
 ## Codacy
 
