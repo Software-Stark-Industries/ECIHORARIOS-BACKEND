@@ -31,6 +31,7 @@ public class SubjectContoller {
     public ResponseEntity<?> getSubject(@PathVariable String id) {
         try {
             Subject subject = subjectServices.getSubject(id);
+            System.out.println("\n Retornando subject: "+subject+"\n");
             return new ResponseEntity<>(subject, HttpStatus.ACCEPTED);
         } catch (EciHorariosException e) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, e);
@@ -52,6 +53,10 @@ public class SubjectContoller {
     @PostMapping(value = "{id}")
     public ResponseEntity<?> addGroupToSubject(@PathVariable String id ,@RequestBody Group group) {
         try {
+            System.out.println("\n Group: "+group+"\n");
+            System.out.println("***************************************************");
+            System.out.println("***************************************************");
+            System.out.println("***************************************************");
             subjectServices.addGroupToSubject(group,subjectServices.getSubject(id));
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (EciHorariosException ex) {

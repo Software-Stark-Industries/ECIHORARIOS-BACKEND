@@ -35,7 +35,9 @@ public class SubjectPersistenceImpl implements SubjectPersistence {
 
     @Override
     public void addGroupToSubject(Group group, Subject subject) {
+        System.out.println("Va a agregar grupo al subject: "+group.getId()+" y "+ subject.getNombre());
         subject.getGroups().add(group);
+        System.out.println("\n "+subject.getGroups().toString() +"\n");
         subjectRepository.save(subject);
     }
 }

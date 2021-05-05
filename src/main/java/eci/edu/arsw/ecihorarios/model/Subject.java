@@ -22,17 +22,22 @@ public class Subject implements Serializable {
     @Column(name = "program", length = 255, nullable = false)
     private String program;
 
+    @Column(name = "credits", nullable = false)
+    private int credits;
+    
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "groups")
     @JsonManagedReference
     private List<Group> groups;
 
 
-    public Subject(String id, String nombre, String description, String program) {
+    public Subject(String id, String nombre, String description, String program, int credits) {
         this.id = id;
         this.nombre = nombre;
         this.description = description;
         this.program = program;
+        this.credits = credits;
     }
 
     public List<Group> getGroups() {
@@ -76,6 +81,14 @@ public class Subject implements Serializable {
 
     public void setProgram(String program) {
         this.program = program;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
     }
 
     @Override
