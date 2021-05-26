@@ -23,7 +23,6 @@ import javax.servlet.ServletException;
  * Controlador API Rest de la aplicación ECI-HORARIOS
  */
 @RestController
-//@CrossOrigin(origins = "https://eci-horarios-frontend-fr.herokuapp.com", allowedHeaders = "*")
 @CrossOrigin(origins = "https://frontendservicioseci.herokuapp.com", allowedHeaders = "*")
 @RequestMapping(value = "/login")
 public class LoginController {
@@ -46,7 +45,6 @@ public class LoginController {
         String password = user.getPassword();
 
         User _user = userServices.getUser(email);
-        //System.out.println("\n problema user: "+_user);
         String pwd = _user.getPassword();
         System.out.println("\n password user problema: "+pwd);
         if (!passwordEncryptor.checkPassword(password, pwd)) {
