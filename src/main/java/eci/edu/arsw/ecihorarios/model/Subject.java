@@ -1,4 +1,5 @@
 package eci.edu.arsw.ecihorarios.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -22,17 +23,29 @@ public class Subject implements Serializable {
     @Column(name = "program", length = 255, nullable = false)
     private String program;
 
+    @Column(name = "credits", nullable = false)
+    private int credits;
+    
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "groups")
     @JsonManagedReference
     private List<Group> groups;
 
 
-    public Subject(String id, String nombre, String description, String program) {
+    @ManyToOne
+    @JoinColumn(name = "student")
+    @JsonBackReference
+    private User student;
+
+
+
+    public Subject(String id, String nombre, String description, String program, int credits) {
         this.id = id;
         this.nombre = nombre;
         this.description = description;
         this.program = program;
+        this.credits = credits;
     }
 
     public List<Group> getGroups() {
@@ -78,6 +91,23 @@ public class Subject implements Serializable {
         this.program = program;
     }
 
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
+
+    public User getStudent() {
+        return student;
+    }
+
+    public void setStudent(User student) {
+        this.student = student;
+    }
+
+
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -88,8 +118,11 @@ public class Subject implements Serializable {
         return super.equals(obj);
     }
 
+
     @Override
     public String toString() {
         return super.toString();
     }
+
+
 }

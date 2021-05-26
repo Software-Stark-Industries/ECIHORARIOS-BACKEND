@@ -47,6 +47,7 @@ public class UserController {
      */
     @PostMapping(value = "")
     public ResponseEntity<?> addUser(@RequestBody User user) {
+        System.out.println("\n ENTRA EN GUARDAR USUARIIO: "+user+"\n");
         if (user.getEmail() == null)
             return new ResponseEntity<>("Bad format", HttpStatus.BAD_REQUEST);
         try {

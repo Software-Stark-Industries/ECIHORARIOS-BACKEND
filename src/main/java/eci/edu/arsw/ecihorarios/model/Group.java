@@ -1,39 +1,59 @@
 package eci.edu.arsw.ecihorarios.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.springframework.data.annotation.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "groups")
 public class Group {
 
-    @javax.persistence.Id
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
 
-    @Column(name = "room", length = 200)
-    private String room;
-
-    @Column(name = "professor", length = 200)
-    private String professor;
 
     @Column(name = "capacity", length = 50)
     private int capacity;
 
-    @Column(name = "date_of_init", length = 200)
-    private String hourOfInit;
+    //@ElementCollection(targetClass=String.class)
+    @Column(name = "horario_dia")
+    private ArrayList<String> dias;
+
+    //Esto lo agregue yo
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "group_id", length=3)
+    private int gruoupId;
+
 
     @Column(name = "date_of_end" , length = 200)
     private String hourOfEnd;
+
+    @Column(name = "date_of_init", length = 200)
+    private String hourOfInit;
+
+    @Column(name = "professor", length = 200)
+    private String professor;
+
+    @Column(name = "room", length = 200)
+    private String room;
 
     @ManyToOne
     @JoinColumn(name = "subject")
     @JsonBackReference
     private Subject subject;
+
+
+    //@ManyToOne
+    //@JoinColumn(name = "user")
+    //private User user;
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long id;
+
 
     public Group(){
     }
@@ -92,6 +112,48 @@ public class Group {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public int getGruoupId() {
+        return gruoupId;
+    }
+
+    public void setGruoupId(int gruoupId) {
+        this.gruoupId = gruoupId;
+    }
+
+    public ArrayList<String> getDias() {
+        return dias;
+    }
+
+    public void setDias(ArrayList<String> dias) {
+        this.dias = dias;
+    }
+
+/*
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+*/
+
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id=" + id +
+                ", room='" + room + '\'' +
+                ", professor='" + professor + '\'' +
+                ", capacity=" + capacity +
+                ", hourOfInit='" + hourOfInit + '\'' +
+                ", hourOfEnd='" + hourOfEnd + '\'' +
+                ", gruoupId=" + gruoupId +
+                ", subject=" + subject +
+                ", dias=" + dias +
+                '}';
     }
 }
 

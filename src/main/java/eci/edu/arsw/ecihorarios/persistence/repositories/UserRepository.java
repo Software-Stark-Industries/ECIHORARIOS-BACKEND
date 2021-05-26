@@ -14,4 +14,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "select * from users where email = :emailUser", nativeQuery = true)
     List<User> getUserByEmail(@Param("emailUser") String emailUser);
+
+    @Query(value="SELECT carnet FROM users ORDER BY carnet desc limit 1", nativeQuery = true)
+    String getLastCarnet();
+
 }

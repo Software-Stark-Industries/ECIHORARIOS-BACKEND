@@ -1,11 +1,17 @@
 package eci.edu.arsw.ecihorarios.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
+//@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class User {
 
     @javax.persistence.Id
@@ -20,11 +26,33 @@ public class User {
     @Column(name = "email", length = 200, unique = true)
     private String email;
 
-    @Column(name = "password", length = 200, unique = true)
+    @Column(name = "password", length = 200)
     private String password;
 
-    @Column(name = "is_admin", length = 200, unique = true)
+    @Column(name = "is_admin", length = 200)
     private boolean isAdmin;
+
+    @Column(name = "carnet", length = 200, unique = true)
+    private String carnet;
+
+    @Column(name = "creditos")
+    private int creditos;
+
+    @OneToMany
+    @JoinColumn(name = "preinscription")
+    @JsonManagedReference
+    private Set<Subject> preinscription;
+
+    //@OneToMany
+    //@JoinColumn(name = "inscription")
+    //private Set<Group> inscription;
+
+    /*
+    @OneToMany
+    @JoinColumn(name = "plan")
+    @JsonManagedReference
+    private Set<SetGroup> plans;
+*/
 
     public User() {
     }
@@ -78,5 +106,59 @@ public class User {
         isAdmin = admin;
     }
 
+    public String getCarnet() {
+        return carnet;
+    }
+
+    public void setCarnet(String carnet) {
+        this.carnet = carnet;
+    }
+
+    public int getCreditos() {
+        return creditos;
+    }
+
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
+    }
+
+    public Set<Subject> getPreinscription() {
+        return preinscription;
+    }
+
+    public void setPreinscription(Set<Subject> preinscription) {
+        this.preinscription = preinscription;
+    }
+/*
+    public Set<Group> getPlans() {
+        return plans;
+    }
+
+    public void setPlans(Set<Group> plans) {
+        this.plans = plans;
+    }
+*/
+/*
+    public Set<Group> getInscription() {
+        return inscription;
+    }
+
+    public void setInscription(Set<Group> inscription) {
+        this.inscription = inscription;
+    }
+*/
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isAdmin=" + isAdmin +
+                ", carnet='" + carnet + '\'' +
+                ", creditos=" + creditos +
+                ", preinscription=" + preinscription +
+                '}';
+    }
 }
 
