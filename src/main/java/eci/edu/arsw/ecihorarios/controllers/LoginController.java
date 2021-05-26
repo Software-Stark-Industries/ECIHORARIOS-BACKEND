@@ -57,7 +57,7 @@ public class LoginController {
         jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date()).signWith(
                 SignatureAlgorithm.HS256, "secretkey").compact();
         System.out.println("\n Jwt TOken: "+jwtToken);
-        System.out.println("\n _user: "+_user+"\n");
+        //System.out.println("\n _user: "+_user+"\n");
         return new ResponseEntity<>(new Token(jwtToken, _user), HttpStatus.OK);
     }
 
