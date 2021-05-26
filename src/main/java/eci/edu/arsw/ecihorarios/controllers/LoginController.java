@@ -35,7 +35,7 @@ public class LoginController {
     private PasswordEncryptor passwordEncryptor;
 
     @RequestMapping(value="/",method = RequestMethod.POST)
-    public ResponseEntity<?> login(@RequestBody User user) throws ServletException, EciHorariosException {
+    public ResponseEntity<Object> login(@RequestBody User user) throws ServletException, EciHorariosException {
         String jwtToken = "";
         System.out.println("\n Entrando en login! "+ user);
         if (user.getEmail() == null || user.getPassword()== null) {
