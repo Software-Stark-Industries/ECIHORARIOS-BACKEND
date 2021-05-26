@@ -16,7 +16,7 @@ public class CrossOriginConfiguration {
             public void addCorsMappings(CorsRegistry registry) {
                 registry
                         .addMapping("/**")
-                        .allowedOrigins("https://eci-horarios-frontend-fr.herokuapp.com")
+                        .allowedOrigins("https://frontendservicioseci.herokuapp.com")
                         .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
             }
         };

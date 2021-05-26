@@ -24,7 +24,7 @@ import javax.servlet.ServletException;
  */
 @RestController
 //@CrossOrigin(origins = "https://eci-horarios-frontend-fr.herokuapp.com", allowedHeaders = "*")
-@CrossOrigin(origins = "https://eci-horarios-frontend-fr.herokuapp.com", allowedHeaders = "*")
+@CrossOrigin(origins = "https://frontendservicioseci.herokuapp.com", allowedHeaders = "*")
 @RequestMapping(value = "/login")
 public class LoginController {
 
