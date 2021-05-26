@@ -144,6 +144,7 @@ public class User {
         this.inscription = inscription;
     }
 */
+
     @Override
     public String toString() {
         return "User{" +

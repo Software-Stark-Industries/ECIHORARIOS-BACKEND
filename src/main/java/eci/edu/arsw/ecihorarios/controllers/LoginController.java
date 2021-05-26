@@ -46,7 +46,7 @@ public class LoginController {
         String password = user.getPassword();
 
         User _user = userServices.getUser(email);
-        System.out.println("\n problema user: "+_user);
+        //System.out.println("\n problema user: "+_user);
         String pwd = _user.getPassword();
         System.out.println("\n password user problema: "+pwd);
         if (!passwordEncryptor.checkPassword(password, pwd)) {
