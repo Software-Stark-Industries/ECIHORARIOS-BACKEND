@@ -35,7 +35,7 @@ public class LoginController {
     private PasswordEncryptor passwordEncryptor;
 
     @RequestMapping(value="/",method = RequestMethod.POST)
-    public ResponseEntity<Object> login(@RequestBody User user) throws ServletException, EciHorariosException {
+    public ResponseEntity<?> login(@RequestBody User user) throws ServletException, EciHorariosException {
         String jwtToken = "";
         System.out.println("\n Entrando en login! "+ user);
         if (user.getEmail() == null || user.getPassword()== null) {
@@ -53,11 +53,9 @@ public class LoginController {
             System.out.println("SON DIFERENTES LAS CONTRASEÑAS!!!: "+password+" & " +pwd);
             throw new ServletException("Invalid login. Please check your name and password.");
         }
-
         jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date()).signWith(
                 SignatureAlgorithm.HS256, "secretkey").compact();
         System.out.println("\n Jwt TOken: "+jwtToken);
-        //System.out.println("\n _user: "+_user+"\n");
         return new ResponseEntity<>(new Token(jwtToken, _user), HttpStatus.OK);
     }
 
