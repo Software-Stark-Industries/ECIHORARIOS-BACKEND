@@ -1,10 +1,6 @@
 package eci.edu.arsw.ecihorarios.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-<<<<<<< HEAD
-import com.fasterxml.jackson.annotation.JsonIgnore;
-=======
->>>>>>> 624e96d703f4684bf4aa3f2b35fc78dbeba4859c
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -47,14 +43,7 @@ public class Group {
     @JsonBackReference
     private Subject subject;
 
-<<<<<<< HEAD
 
-    //@ManyToOne
-    //@JoinColumn(name = "user")
-    //private User user;
-
-=======
->>>>>>> 624e96d703f4684bf4aa3f2b35fc78dbeba4859c
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -136,7 +125,7 @@ public class Group {
         this.dias = dias;
     }
 
-<<<<<<< HEAD
+
 /*
     public User getUser() {
         return user;
@@ -148,8 +137,6 @@ public class Group {
 */
 
 
-=======
->>>>>>> 624e96d703f4684bf4aa3f2b35fc78dbeba4859c
     @Override
     public String toString() {
         return "Group{" +

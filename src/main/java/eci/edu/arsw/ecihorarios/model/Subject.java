@@ -33,7 +33,7 @@ public class Subject implements Serializable {
     private List<Group> groups;
 
 
-<<<<<<< HEAD
+
     @ManyToOne
     @JoinColumn(name = "student")
     @JsonBackReference
@@ -41,8 +41,6 @@ public class Subject implements Serializable {
 
 
 
-=======
->>>>>>> 624e96d703f4684bf4aa3f2b35fc78dbeba4859c
     public Subject(String id, String nombre, String description, String program, int credits) {
         this.id = id;
         this.nombre = nombre;
@@ -102,7 +100,6 @@ public class Subject implements Serializable {
         this.credits = credits;
     }
 
-<<<<<<< HEAD
     public User getStudent() {
         return student;
     }
@@ -111,9 +108,6 @@ public class Subject implements Serializable {
         this.student = student;
     }
 
-
-=======
->>>>>>> 624e96d703f4684bf4aa3f2b35fc78dbeba4859c
     @Override
     public int hashCode() {
         return super.hashCode();

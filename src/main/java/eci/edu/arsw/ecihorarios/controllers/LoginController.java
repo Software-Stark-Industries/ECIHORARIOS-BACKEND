@@ -23,7 +23,7 @@ import javax.servlet.ServletException;
  * Controlador API Rest de la aplicación ECI-HORARIOS
  */
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "https://eci-horarios-frontend-fr.herokuapp.com", allowedHeaders = "*")
 @RequestMapping(value = "/login")
 public class LoginController {
 
@@ -32,18 +32,6 @@ public class LoginController {
 
     @Autowired
     private PasswordEncryptor passwordEncryptor;
-
-    @PostMapping(value = "/hola")
-    public ResponseEntity<?> doLogin(@RequestBody User user) {
-        System.out.println("Entrando por login antiguo: "+user);
-        try {
-            User dbUser = userServices.doLogin(user);
-            return new ResponseEntity<>(dbUser , HttpStatus.ACCEPTED);
-        } catch (EciHorariosException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
-        }
-    }
 
     @RequestMapping(value="/",method = RequestMethod.POST)
     public ResponseEntity<?> login(@RequestBody User user) throws ServletException, EciHorariosException {

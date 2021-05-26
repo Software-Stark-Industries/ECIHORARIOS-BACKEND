@@ -59,12 +59,6 @@ public class SubjectContoller {
     public ResponseEntity<?> addGroupToSubject(@PathVariable String id ,@RequestBody Group group) {
         try {
             System.out.println("\n Group: "+group+"\n");
-<<<<<<< HEAD
-=======
-            System.out.println("***************************************************");
-            System.out.println("***************************************************");
-            System.out.println("***************************************************");
->>>>>>> 624e96d703f4684bf4aa3f2b35fc78dbeba4859c
             subjectServices.addGroupToSubject(group,subjectServices.getSubject(id));
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (EciHorariosException ex) {
