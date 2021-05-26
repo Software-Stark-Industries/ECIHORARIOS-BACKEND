@@ -46,9 +46,9 @@ public class LoginController {
         String password = user.getPassword();
 
         User _user = userServices.getUser(email);
-
+        System.out.println("\n problema user: "+_user);
         String pwd = _user.getPassword();
-
+        System.out.println("\n password user problema: "+pwd);
         if (!passwordEncryptor.checkPassword(password, pwd)) {
             System.out.println("SON DIFERENTES LAS CONTRASEÑAS!!!: "+password+" & " +pwd);
             throw new ServletException("Invalid login. Please check your name and password.");
