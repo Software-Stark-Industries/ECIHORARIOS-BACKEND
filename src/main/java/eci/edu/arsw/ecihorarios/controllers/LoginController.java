@@ -23,6 +23,7 @@ import javax.servlet.ServletException;
  * Controlador API Rest de la aplicación ECI-HORARIOS
  */
 @RestController
+//@CrossOrigin(origins = "https://eci-horarios-frontend-fr.herokuapp.com", allowedHeaders = "*")
 @CrossOrigin(origins = "https://eci-horarios-frontend-fr.herokuapp.com", allowedHeaders = "*")
 @RequestMapping(value = "/login")
 public class LoginController {
